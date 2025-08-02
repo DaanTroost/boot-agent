@@ -3,7 +3,7 @@ from google.genai import types
 
 from config import MAX_FILE_READ
 
-def get_files_content(working_directory, file_path):
+def get_file_content(working_directory, file_path):
     try:
         working_dir = pl.Path(working_directory)
         target_dir = pl.Path.joinpath(working_dir, pl.Path(file_path))
@@ -26,7 +26,7 @@ def get_files_content(working_directory, file_path):
         return f"Error: {e}"
 
 schema_get_files_content = types.FunctionDeclaration(
-    name="get_files_content",
+    name="get_file_content",
     description=f"Reads and returns the first {MAX_FILE_READ} characters of the content from a specified file within the working directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
